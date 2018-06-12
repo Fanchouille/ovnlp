@@ -1,0 +1,6 @@
+{
+  "cc": {
+    "en": "https://s3-us-west-1.amazonaws.com/fasttext-vectors/crawl-300d-2M.vec.zip",
+    "fr": "https://s3-us-west-1.amazonaws.com/fasttext-vectors/word-vectors-v2/cc.fr.300.bin.gz"
+  }
+}
