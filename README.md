@@ -14,6 +14,7 @@ Developed under MIT license by Openvalue : http://openvalue.co
 ## Installation
 
 OVNLP runs on Python 3.6 ONLY.
+
 Just run
 
     > pip install ovnlp
