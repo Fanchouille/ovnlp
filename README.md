@@ -15,7 +15,7 @@ Developed under MIT license by Openvalue : http://openvalue.co
 
 Just run
 
-    > pip install --index-url https://test.pypi.org/simple/ ovnlp
+    > pip install ovnlp
 
 ## Usage 
 
