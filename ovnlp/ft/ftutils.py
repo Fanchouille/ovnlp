@@ -32,16 +32,14 @@ def wordlist_to_vec(iWordList, iModel, iNormed=True):
     cleaned_list = []
     for lWord in iWordList:
         cleaned_list.append(word_to_vec(lWord, iModel, iNormed))
-
     wordVecs = np.array(cleaned_list)
+    wordVecsNorms = np.array([np.linalg.norm(x) for x in wordVecs])
+    nonNullWV = wordVecs[np.where(wordVecsNorms > 0.0)]
     if iNormed:
-
-        wordVecsNorms = np.array([np.linalg.norm(x) for x in wordVecs])
-        nonNullWV = wordVecs[np.where(wordVecsNorms > 0.0)]
         if nonNullWV.shape[0] > 0:
             nonNullWV /= wordVecsNorms[np.where(wordVecsNorms > 0.0)].reshape(-1, 1)
             return nonNullWV.mean(axis=0)
         else:
             return np.zeros(iModel.wv.vector_size)
     else:
-        wordVecs.mean(axis=0)
+        return nonNullWV.mean(axis=0)

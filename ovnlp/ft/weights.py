@@ -53,12 +53,12 @@ def delete_dir(dirPath):
 
 
 class WeightSource(object):
-    def __init__(self, iLang=None, iTrainedOn=None, iProjectPath=None):
+    def __init__(self, iLang=None, iTrainedOn=None, iSavePath=None):
         """
 
         :param iDict: dict of pretrained weight source (weightsource.json)
         :param iTrainedOn: cc (common crawl) or wiki
-        :param iProjectPath:
+        :param iSavePath:
         """
         self.dsDict = json.loads(pkg_resources.resource_string(__name__, 'weightsource.json'))
 
@@ -86,10 +86,10 @@ class WeightSource(object):
             print("-" * 100)
             self.trainedOn = "myModel"
 
-        if iProjectPath is None:
+        if iSavePath is None:
             self.projectPath = str(Path.home()) + "/ovnlp"
         else:
-            self.projectPath = iProjectPath
+            self.projectPath = iSavePath
 
         self.sourceDict = self.get_weight_source_dict()
 
