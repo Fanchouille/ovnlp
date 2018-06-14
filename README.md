@@ -23,7 +23,7 @@ Just run
 
 See demo_notebook.ipynb for usage examples
 
-## Weights source
+## FT Weights source
 
 Pretrained weights from FB :
  - trained on crawl : https://s3-us-west-1.amazonaws.com/fasttext-vectors/word-vectors-v2/cc.fr.300.bin.gz
