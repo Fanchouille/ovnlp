@@ -19,7 +19,9 @@ REQUIRED = [
     "nltk>=3.2.4",
     "numpy>=1.13.3",
     "requests>=2.18.4",
-    "pathlib>=1.0.1"
+    "pathlib>=1.0.1",
+    "scikit_learn>=0.19.1",
+    "scipy>=1.0.0"
 ]
 
 # print(find_packages(exclude=('tests', 'fasttext/weights')))
