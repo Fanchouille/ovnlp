@@ -1,6 +1,7 @@
 # ovnlp
 
 A toolkit to download, train, use fastText word vectors on text data.
+Also lets you deduplicate data based on TF IDF representation (see txtMatcher)
 Developed under MIT license by Openvalue : http://openvalue.co
 
 
