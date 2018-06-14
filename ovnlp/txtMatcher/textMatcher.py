@@ -157,7 +157,7 @@ class TextMatcher(object):
                 lead = x.leader
                 groupDict = x.group
                 oDf.loc[:, 'groupId'] = oDf.loc[:, id_col_1].map(lambda x: lead[x])
-                oDf.loc[:, 'group'] = oDf.loc[:, 'groupId'].map(lambda x: groupDict[x])
+                oDf.loc[:, 'group'] = oDf.loc[:, 'groupId'].map(lambda x: tuple(groupDict[x]))
                 return oDf.loc[:, lCols + [id_col_1 + '_' + id_col_2 + '_tuple', 'groupId', 'group']]
 
             else:
