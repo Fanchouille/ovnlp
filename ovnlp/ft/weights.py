@@ -213,15 +213,17 @@ class WeightSource(object):
                 print("Loading with FastText.load")
                 model = FastText.load(fileToLoad[0])
                 print(fileToLoad[0] + " was loaded.")
+                return model
             except:
                 try:
                     print("Loading with FastText.load_fasttext_format")
                     model = FastText.load_fasttext_format(fileToLoad[0])
                     print(fileToLoad[0] + " was loaded.")
+                    return model
                 except:
                     print("Unable to load " + fileToLoad[0] + " file. Please retrain or redl weights.")
 
-            return model
+
         else:
             print("No model found. Please dl pretrained weights or train custom ones.")
             return

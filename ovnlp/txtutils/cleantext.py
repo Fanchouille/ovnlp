@@ -3,6 +3,7 @@ from nltk.corpus import stopwords
 from string import punctuation
 from nltk.stem.snowball import SnowballStemmer
 from nltk import RegexpTokenizer
+import unicodedata
 
 
 class LangTools(object):
@@ -46,9 +47,29 @@ class LangTools(object):
         return tokenizer
 
 
+def strip_accents(iText):
+    """
+    Strip accents from input String.
+
+    :param iText: The input string.
+    :type iText: String.
+
+    :returns: The processed String.
+    :rtype: String.
+    """
+    try:
+        iText = unicode(iText, 'utf-8')
+    except (TypeError, NameError):  # unicode is a default on python 3
+        pass
+    oText = unicodedata.normalize('NFD', iText)
+    oText = oText.encode('ascii', 'ignore')
+    oText = oText.decode("utf-8")
+    return str(oText)
+
+
 def tokenize(iSentence, iTokenizer, iStopWords, iStemmer=None):
     words = iTokenizer.tokenize(iSentence)
-    words = [w.lower() for w in words]
+    words = [strip_accents(w.lower().replace("_", "")) for w in words]
     wordslist = [w for w in words if w not in iStopWords and not w.isdigit()]
     if iStemmer is not None:
         wordslist = [iStemmer.stem(w) for w in wordslist]
